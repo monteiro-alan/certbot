@@ -883,8 +883,8 @@ elif uname | grep -iq Darwin ; then
   DEPRECATED_OS=1
   NO_SELF_UPGRADE=1
 elif [ -f /etc/issue ] && grep -iq "Amazon Linux" /etc/issue ; then
-  DEPRECATED_OS=1
-  NO_SELF_UPGRADE=1
+  DEPRECATED_OS=0
+  NO_SELF_UPGRADE=0
 elif [ -f /etc/product ] && grep -q "Joyent Instance" /etc/product ; then
   DEPRECATED_OS=1
   NO_SELF_UPGRADE=1
