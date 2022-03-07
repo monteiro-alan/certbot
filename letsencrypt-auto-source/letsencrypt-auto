@@ -799,7 +799,7 @@ BootstrapMageiaCommon() {
 # that function. If Bootstrap is set to a function that doesn't install any
 # packages BOOTSTRAP_VERSION is not set.
 if [ -f /etc/debian_version ]; then
-  DEPRECATED_OS=1
+  DEPRECATED_OS=0
   NO_SELF_UPGRADE=1
 elif [ -f /etc/mageia-release ]; then
   # Mageia has both /etc/mageia-release and /etc/redhat-release
@@ -855,7 +855,7 @@ elif [ -f /etc/redhat-release ]; then
     elif [ "$RPM_DIST_NAME" = "centos" -a "$RPM_DIST_VERSION" -ge 8 ]; then
       RPM_USE_PYTHON_3=1
     else
-      RPM_USE_PYTHON_3=1
+      RPM_USE_PYTHON_3=0
     fi
 
     if [ "$RPM_USE_PYTHON_3" = 1 ]; then
@@ -883,7 +883,7 @@ elif uname | grep -iq Darwin ; then
   DEPRECATED_OS=1
   NO_SELF_UPGRADE=1
 elif [ -f /etc/issue ] && grep -iq "Amazon Linux" /etc/issue ; then
-  DEPRECATED_OS=0
+  DEPRECATED_OS=1
   NO_SELF_UPGRADE=1
 elif [ -f /etc/product ] && grep -q "Joyent Instance" /etc/product ; then
   DEPRECATED_OS=1
